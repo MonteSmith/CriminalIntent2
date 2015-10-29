@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
 public abstract class SingleFragmentActivity extends FragmentActivity {
-    protected abstract Fragment createFragment();
+    protected abstract CrimeListFragment createFragment();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -14,6 +14,7 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
         setContentView(R.layout.activity_fragment);
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+
         if (fragment == null) {
             fragment = createFragment();
             fm.beginTransaction()
@@ -24,8 +25,9 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
 
     }
 
+
     public void setContentView(int activity_fragment) {
-    }
+    } // End of onCreate(Bundle)
 
 
-}
+} // End of CrimeActivity
