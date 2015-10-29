@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<CheckBox
+    android:id="@+id/crime_list_item_solvedCheckBox"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_alignParentRight="true"
+    android:enabled="false"
+    android:focusable="false"
+    android:padding="4dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"/>

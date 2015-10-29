@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="fragmentContainer" type="id"/>
+    <item name="crime_list_item_titleTextView" type="id"/>
+    <item name="crime_list_item_item_solvedCheckBox" type="id"/>
+    <item name="viewPager" type="id"/>
+</resources>
