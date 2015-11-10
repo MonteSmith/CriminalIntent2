@@ -16,7 +16,7 @@ import java.util.UUID;
 
 
 public class CrimeFragment extends Fragment {
-    public static final String EXTRA_CRIME_ID = "com.brandon.android.criminalintent.crime_id";
+    public static final String EXTRA_CRIME_ID = "com.example.student.criminalintent";
     private Crime mCrime;
     private EditText mTitleField;
     private CheckBox mSolvedCheckBox;
