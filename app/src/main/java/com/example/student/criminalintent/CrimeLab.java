@@ -48,6 +48,9 @@ public class CrimeLab {
         return -1;
     } // End getCrimePosition(UUID crimeId)
 
+    public void addCrime(Crime c) {
+        mCrimes.add(c);
+    }
     public ArrayList<Crime> getCrimes() {
         return mCrimes;
     }
@@ -58,5 +61,5 @@ public class CrimeLab {
 
     public void setAppContext(Context appContext) {
         mAppContext = appContext;
-    } // End of
+    }
 } // End of CrimeLab
