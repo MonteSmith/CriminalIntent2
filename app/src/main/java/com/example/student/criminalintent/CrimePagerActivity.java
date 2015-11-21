@@ -1,21 +1,21 @@
 package com.example.student.criminalintent;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class CrimePagerActivity extends FragmentActivity {
+public class CrimePagerActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private ArrayList<Crime> mCrimes;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mViewPager = new ViewPager(this);
         mViewPager.setId(R.id.viewPager);
@@ -24,6 +24,7 @@ public class CrimePagerActivity extends FragmentActivity {
         mCrimes = CrimeLab.get(this).getCrimes();
         FragmentManager fm = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fm) {
+
             @Override
             public Fragment getItem(int position) {
                 return CrimeFragment.newInstance(mCrimes.get(position).getId());
@@ -41,7 +42,7 @@ public class CrimePagerActivity extends FragmentActivity {
         Crime c = CrimeLab.get(this).getCrime(crimeId);
         setTitle(c.getTitle());
 
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i2) {  }
 

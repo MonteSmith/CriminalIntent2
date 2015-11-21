@@ -7,7 +7,7 @@ import java.util.UUID;
 public class CrimeActivity extends SingleFragmentActivity {
 
     @Override
-    protected CrimeFragment createFragment(){
+    protected CrimeListFragment createFragment(){
         UUID crimeId = (UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);
         return CrimeFragment.newInstance(crimeId);
     }
