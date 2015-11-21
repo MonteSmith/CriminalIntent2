@@ -1,20 +1,34 @@
 package com.example.student.criminalintent;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class CrimeLab {
+
+    private static final String TAG = "CrimeLab";
+    private static final String FILENAME = "crimes.json";
+
     private ArrayList<Crime> mCrimes;
+    private CriminalIntentJSONSerializer mSerializer;
+
     private Context mAppContext;
     private static CrimeLab sCrimeLab;
 
     private CrimeLab(Context appContext) {
         mAppContext = appContext;
+        mSerializer = new CriminalIntentJSONSerializer(mAppContext, FILENAME);
+
+        try {
+            mCrimes = mSerializer.loadCrimes();
+        } catch (Exception e) {
         mCrimes = new ArrayList<Crime>();
-        createCrimes();
-    } // End of CrimeLab(Context appContext)
+            Log.e(TAG, "Error saving crimes: ", e);
+        }
+    } // End of CrimeLab(context appContext
+
 
     private void createCrimes() {
         for (int i = 0; i < 100; i++) {
@@ -23,7 +37,15 @@ public class CrimeLab {
             c.setSolved(i % 2 == 0); // Every other one
             mCrimes.add(c);
         } // End of for (int i = 0; i < 100; i++)
-    } // End of createCrimes()
+    }
+        public void addCrime(Crime c) {
+        mCrimes.add(c);
+    }
+        public void deleteCrime(Crime c) {
+            mCrimes.remove(c);
+        }
+
+    // End of createCrimes()
 
 
     public static CrimeLab get(Context c) {

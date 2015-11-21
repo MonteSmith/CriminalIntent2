@@ -8,4 +8,5 @@
     <string name="crime_title_label">Title</string>
     <string name="crimes_title">Crimes</string>
     <string name="crime_title"/>
+    <string name="delete_crime"/>
 </resources>
